@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 
 type MethodRequest = {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
@@ -18,16 +18,19 @@ const api = axios.create({
   params: {
     key: process.env.NEXT_PUBLIC_KEY_API,
   },
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  },
 })
-
-api.interceptors.response.use(
-  response => {
-    return response
-  },
-  (error: AxiosError) => {
-    return Promise.reject(error)
-  },
-)
+// api.interceptors.response.use(
+//   response => {
+//     return response
+//   },
+//   (error: AxiosError) => {
+//     return Promise.reject(error)
+//   },
+// )
 
 export async function fetchApi<T = any>({
   url,
@@ -53,28 +56,4 @@ export async function fetchApi<T = any>({
   }
 }
 
-const brasilApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BRASIL_API,
-})
-
-brasilApi.interceptors.response.use(
-  response => {
-    return response
-  },
-  (error: AxiosError) => {
-    return Promise.reject(error)
-  },
-)
-
-const apiDefault = axios.create()
-
-apiDefault.interceptors.response.use(
-  response => {
-    return response
-  },
-  (error: AxiosError) => {
-    return Promise.reject(error)
-  },
-)
-
-export { brasilApi, api, apiDefault }
+export { api }

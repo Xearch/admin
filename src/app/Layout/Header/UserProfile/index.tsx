@@ -23,9 +23,10 @@ import router from 'next/router'
 import { useState } from 'react'
 
 const user = {
-  name: 'Cleginaldo Bandeiras',
-  email: 'cleginaldo3000@gmail.com',
-  image: 'https://avatars.githubusercontent.com/u/86210653?v=4',
+  name: 'Jhon Doe',
+  email: 'jW6VJ@example.com',
+  image:
+    'https://unsplash.com/photos/x_8oJhYU31k/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8cGVyZmlsfHB0fDB8fHx8MTY5OTIwMTM3NXww&force=true',
 }
 
 type Props = {
