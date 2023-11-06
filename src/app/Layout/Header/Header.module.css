@@ -1,0 +1,52 @@
+.main {
+ margin-bottom: rem(100px);
+ display: flex;
+ 
+ @media (max-width: $mantine-breakpoint-md) {
+   margin-bottom: rem(65px);
+}
+}
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding-top: var(--mantine-spacing-sm);
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-2), transparent);
+}
+
+.mainSection {
+  padding-bottom: var(--mantine-spacing-sm);
+}
+
+.tabsList {
+  &::before {
+    display: none;
+  }
+}
+
+.tab {
+  font-weight: 500;
+  height: rem(38);
+  background-color: transparent;
+  position: relative;
+
+  
+  &[data-active] {
+    background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-9));
+    border-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-0));
+    border-bottom-color: transparent;
+  }
+
+  &:hover {
+    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-7));
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    display: none;
+  }
+
+}
