@@ -1,4 +1,5 @@
 import classes from '@/src/app/Layout/Header/UserProfile/UserProfile.module.css'
+import { useAuth } from '@/src/contexts/AuthContext'
 import {
   Menu,
   UnstyledButton,
@@ -16,24 +17,17 @@ import {
   IconSettings,
   IconSwitchHorizontal,
   IconLogout,
-  IconTrash,
 } from '@tabler/icons-react'
 import cx from 'clsx'
 import router from 'next/router'
 import { useState } from 'react'
-
-const user = {
-  name: 'Jhon Doe',
-  email: 'jW6VJ@example.com',
-  image:
-    'https://unsplash.com/photos/x_8oJhYU31k/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8N3x8cGVyZmlsfHB0fDB8fHx8MTY5OTIwMTM3NXww&force=true',
-}
 
 type Props = {
   visibleFrom?: MantineSize
 }
 
 export function UserProfile({ visibleFrom }: Props) {
+  const { user, signOut } = useAuth()
   const { setColorScheme, colorScheme } = useMantineColorScheme()
   const [userMenuOpened, setUserMenuOpened] = useState(false)
 
@@ -53,13 +47,15 @@ export function UserProfile({ visibleFrom }: Props) {
           })}
           visibleFrom={visibleFrom}
         >
-          <Group gap={7}>
-            <Avatar src={user.image} alt={user.name} radius="xl" size={20} />
-            <Text fw={500} size="sm" lh={1} mr={3}>
-              {user.name}
-            </Text>
-            <IconChevronDown style={{ width: rem(12), height: rem(12) }} stroke={1.5} />
-          </Group>
+          {user && (
+            <Group gap={7}>
+              <Avatar src={user.image} alt={user.name} radius="xl" size={20} />
+              <Text fw={500} size="sm" lh={1} mr={3}>
+                {user.name}
+              </Text>
+              <IconChevronDown style={{ width: rem(12), height: rem(12) }} stroke={1.5} />
+            </Group>
+          )}
         </UnstyledButton>
       </Menu.Target>
       <Menu.Dropdown>
@@ -91,22 +87,13 @@ export function UserProfile({ visibleFrom }: Props) {
           Mudar de conta
         </Menu.Item>
         <Menu.Item
-          onClick={() => router.push('/')}
+          onClick={() => signOut()}
           leftSection={<IconLogout style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
         >
           Sair
         </Menu.Item>
 
         <Menu.Divider />
-
-        <Menu.Label>Avançado</Menu.Label>
-
-        <Menu.Item
-          color="red"
-          leftSection={<IconTrash style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
-        >
-          Apagar conta
-        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   )

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
 type MethodRequest = {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
@@ -15,14 +15,23 @@ type RequestOptions = {
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_API,
-  params: {
-    key: process.env.NEXT_PUBLIC_KEY_API,
-  },
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'Access-Control-Allow-Origin: http://localhost:3000/',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
   },
+  httpAgent: true,
 })
+
+api.interceptors.response.use(
+  response => {
+    return response
+  },
+  (error: AxiosError) => {
+    return Promise.reject(error)
+  },
+)
+
 // api.interceptors.response.use(
 //   response => {
 //     return response

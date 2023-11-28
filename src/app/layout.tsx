@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import '@mantine/core/styles.css'
+import { AppProvider } from '@/src/contexts'
+import PrivateRoute from '@/src/routes/PrivateRoutes'
 import { theme } from '@/theme'
 import { MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
-import React from 'react'
+
 import '@mantine/notifications/styles.css'
 
 export const metadata = {
@@ -26,9 +28,13 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme="dark">
-          <Notifications /> {children}
-        </MantineProvider>
+        <AppProvider>
+          <MantineProvider theme={theme} defaultColorScheme="dark">
+            <PrivateRoute>
+              <Notifications /> {children}
+            </PrivateRoute>
+          </MantineProvider>
+        </AppProvider>
       </body>
     </html>
   )
