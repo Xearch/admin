@@ -2,12 +2,20 @@
 
 import { Children } from '@/src/contexts'
 import { useAuth } from '@/src/contexts/AuthContext'
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
-export default function PrivateRoute({ children }: Children) {
-  const pathName = usePathname()
+export function PrivateRoute({ children }: Children) {
   const router = useRouter()
   const { user } = useAuth()
-  if (!user && pathName !== '/') router.replace('/')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const pathName = window.location.pathname
+      if (!user && pathName !== '/') {
+        router.replace('/')
+      }
+    }
+  }, [user, router])
   return children
 }

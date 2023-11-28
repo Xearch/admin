@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import '@mantine/core/styles.css'
 import { AppProvider } from '@/src/contexts'
-import PrivateRoute from '@/src/routes/PrivateRoutes'
+import { PrivateRoute } from '@/src/routes/PrivateRoutes'
 import { theme } from '@/theme'
 import { MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
