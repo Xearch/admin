@@ -15,12 +15,6 @@ type RequestOptions = {
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_API,
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'Access-Control-Allow-Origin: http://localhost:3000/',
-    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-  },
-  httpAgent: true,
 })
 
 api.interceptors.response.use(
@@ -32,15 +26,6 @@ api.interceptors.response.use(
   },
 )
 
-// api.interceptors.response.use(
-//   response => {
-//     return response
-//   },
-//   (error: AxiosError) => {
-//     return Promise.reject(error)
-//   },
-// )
-
 export async function fetchApi<T = any>({
   url,
   options,
@@ -51,8 +36,6 @@ export async function fetchApi<T = any>({
 
   try {
     const response = await fetch(input, options)
-    console.log('input', input)
-    console.log('response', response)
 
     if (!response.ok) {
       throw new Error('Network response was not ok')

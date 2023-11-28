@@ -1,12 +1,10 @@
-'use client'
-
 import Layout from '@/src/app/Layout/index'
-import { Welcome } from '@/src/components/Welcome/Welcome'
+import { Profile } from '@/src/components/Profile/Profile'
 
 export default function HomePage() {
   return (
     <Layout>
-      <Welcome />
+      <Profile />
     </Layout>
   )
 }
