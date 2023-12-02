@@ -6,7 +6,9 @@ import useSWR, { SWRResponse } from 'swr'
 type GetUserProfile = () => Promise<UserProfileType | undefined>
 
 export const getUserProfile: GetUserProfile = async () => {
-  const { data: userProfile } = await api.get(`/me`)
+  const { data: userProfile } = await api.get(`/me`, {
+    params: { v: 1 },
+  })
 
   const formattedUser = {
     token: userProfile.token,

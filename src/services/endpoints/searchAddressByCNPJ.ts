@@ -7,7 +7,9 @@ export async function searchAddressByCNPJ(CNPJ: string): Promise<CnpjResponse | 
   const cnpj = getOnlyNumbers(String(CNPJ))
   if (cnpj) {
     try {
-      const { data } = await api.get<CnpjResponseType>(`/cnpj/${getOnlyNumbers(cnpj)}`)
+      const { data } = await api.get<CnpjResponseType>(`/cnpj/${getOnlyNumbers(cnpj)}`, {
+        params: { v: 1 },
+      })
       return {
         abertura: data.data.abertura,
         situacao: data.data.situacao,

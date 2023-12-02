@@ -8,7 +8,12 @@ import { FindByLicensePlateType } from '../types'
 type ResultByLicensePlate = (license_plate: string) => Promise<FindByLicensePlateType>
 
 export const searchByLicensePlate: ResultByLicensePlate = async license_plate => {
-  const { data: response } = await api.get<FindByLicensePlateType>(`placa/${getAlphanumeric(license_plate)}`)
+  const { data: response } = await api.get<FindByLicensePlateType>(
+    `placa/${getAlphanumeric(license_plate)}`,
+    {
+      params: { v: 1 },
+    },
+  )
   const formattedResponse = {
     ...response,
     data: {

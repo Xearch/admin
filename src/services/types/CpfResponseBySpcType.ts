@@ -1,6 +1,4 @@
 export interface Data {
-  success: boolean
-  created_at: string
   tem_restricao_spc: string
   nome: string
   idade: string
@@ -19,10 +17,11 @@ export interface Data {
   sexo: string
   signo: string
   endereco: Endereco
-  dividasSpc: string
+  dividasSpc: DividasSpc
   ultimoTelefone: string
   ultimoEndereco: string
-  alertaDocumento: AlertaDocumento
+  alertaDocumento: string
+  dataConsulta: string
 }
 export interface TelefoneCelular {
   'numero-ddd': string
@@ -43,13 +42,34 @@ export interface Cidade {
 export interface Estado {
   'sigla-uf': string
 }
-export interface AlertaDocumento {
+export interface DividasSpc {
   'quantidade-total': string
   'data-ultima-ocorrencia': string
+  'valor-total': string
+  detalhes: Detalhes
+}
+export interface Detalhes {
+  'nome-associado': string
+  'data-inclusao': string
+  'data-vencimento': string
+  'nome-entidade': string
+  contrato: string
+  'registro-instituicao-financeira': string
+  'comprador-fiador-avalista': string
+  valor: string
+  'cidade-associado': CidadeAssociado
+  'telefone-associado': TelefoneAssociado
+}
+export interface CidadeAssociado {
+  nome: string
+  estado: Estado
+}
+export interface TelefoneAssociado {
+  'numero-ddd': string
+  numero: string
 }
 export interface CpfResponseBySpcType {
-  data: {
-    data: Data
-  }
+  data: Data
+  success: boolean
   ip: string
 }

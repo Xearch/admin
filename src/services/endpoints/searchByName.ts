@@ -7,7 +7,9 @@ type FindByName = (name: string) => Promise<FindByNameType | undefined>
 
 export const searchByName: FindByName = async name => {
   if (name) {
-    const { data: users } = await api.get(`name/${encodeURIComponent(name)}`)
+    const { data: users } = await api.get(`name/${encodeURIComponent(name)}`, {
+      params: { v: 1 },
+    })
     return users
   }
   return undefined

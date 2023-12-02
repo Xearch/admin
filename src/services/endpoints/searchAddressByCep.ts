@@ -16,7 +16,9 @@ export async function searchAddressByCep(zipcode: string): Promise<Address | nul
   const cep = getOnlyNumbers(zipcode)
   if (cep) {
     try {
-      const { data } = await api.get<CepResponseType>(`/cep/${getOnlyNumbers(cep)}`)
+      const { data } = await api.get<CepResponseType>(`/cep/${getOnlyNumbers(cep)}`, {
+        params: { v: 1 },
+      })
 
       const dataCep = {
         city: data.data.v2.cidade,

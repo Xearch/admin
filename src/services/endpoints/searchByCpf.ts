@@ -10,7 +10,7 @@ type FindCompleteByCpf = (cpf: string) => Promise<FindCompleteCpfType>
 
 export const searchByCpfComplete: FindCompleteByCpf = async cpf => {
   const { data: response } = await api.get<FindCompleteCpfType>(`cpf/${getOnlyNumbers(cpf)}`, {
-    params: { type: 'complete' },
+    params: { type: 'complete', v: 1 },
   })
   const formattedResponse = {
     ...response,
@@ -28,7 +28,7 @@ type FindCnsByCpf = (cpf: string) => Promise<FindCnsByCpfType>
 
 export const searchCnsByCpf: FindCnsByCpf = async cpf => {
   const { data: response } = await api.get<FindCnsByCpfType>(`cpf/${getOnlyNumbers(cpf)}`, {
-    params: { type: 'cns' },
+    params: { type: 'cns', v: 1 },
   })
   const formattedResponse = {
     ...response,
@@ -48,7 +48,7 @@ type FindSimpleByCpf = (cpf: string) => Promise<FindSimpleCpfType>
 
 export const searchByCpfSimple: FindSimpleByCpf = async cpf => {
   const { data: response } = await api.get<FindSimpleCpfType>(`cpf/${getOnlyNumbers(cpf)}`, {
-    params: { type: 'simple' },
+    params: { type: 'simple', v: 1 },
   })
   const formattedResponse = {
     ...response,
@@ -65,11 +65,14 @@ export const searchByCpfSimple: FindSimpleByCpf = async cpf => {
 type FindDataCpfBySpc = (cpf: string) => Promise<CpfResponseBySpcType>
 
 export const searchDataCpfBySpc: FindDataCpfBySpc = async cpf => {
-  const { data: response } = await api.get<CpfResponseBySpcType>(`spc/${getOnlyNumbers(cpf)}`)
+  const { data: response } = await api.get<CpfResponseBySpcType>(`spc/${getOnlyNumbers(cpf)}`, {
+    params: { v: 1 },
+  })
   const formattedResponse = {
     ...response,
     data: {
       ...response.data,
+      dataConsulta: format(new Date(), `dd/MM/yyyy 'às' HH:mm:ss`),
     },
   } as CpfResponseBySpcType
 
