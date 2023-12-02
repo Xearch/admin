@@ -11,9 +11,12 @@ export function PrivateRoute({ children }: Children) {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const pathName = window.location.pathname
-      if (!user && pathName !== '/') {
-        router.replace('/')
+      const { pathname } = window.location
+      if (user && pathname === '/') {
+        router.push('/home')
+      }
+      if (!user && pathname !== '/') {
+        router.push('/')
       }
     }
   }, [user, router])

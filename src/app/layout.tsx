@@ -29,11 +29,11 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <AppProvider>
-          <MantineProvider theme={theme} defaultColorScheme="dark">
-            <PrivateRoute>
+          <PrivateRoute>
+            <MantineProvider theme={theme} defaultColorScheme="dark">
               <Notifications /> {children}
-            </PrivateRoute>
-          </MantineProvider>
+            </MantineProvider>
+          </PrivateRoute>
         </AppProvider>
       </body>
     </html>
