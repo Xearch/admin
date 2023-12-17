@@ -1,5 +1,5 @@
 .main {
- margin-bottom: rem(100px);
+ margin-bottom: rem(60px);
  display: flex;
  
  @media (max-width: $mantine-breakpoint-md) {
@@ -10,11 +10,11 @@
 .header {
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  /* position: fixed; */
   z-index: 100;
   width: 100%;
   padding-top: var(--mantine-spacing-sm);
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
   border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-2), transparent);
 }
 
@@ -32,7 +32,7 @@
   font-weight: 500;
   height: rem(38);
   background-color: transparent;
-  position: relative;
+  /* position: relative; */
 
   
   &[data-active] {

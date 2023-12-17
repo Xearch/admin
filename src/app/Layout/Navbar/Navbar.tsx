@@ -1,5 +1,5 @@
 import classes from '@/src/app/Layout/Navbar/Navbar.module.css'
-import { Group, rem, ScrollArea } from '@mantine/core'
+import { Group, ScrollArea } from '@mantine/core'
 import {
   IconNotes,
   IconCalendarStats,
@@ -11,8 +11,6 @@ import {
 } from '@tabler/icons-react'
 
 import { tabsNames } from '../Header/tabsNames'
-import { UserProfile } from '../Header/UserProfile'
-import { Logo } from '../logo'
 import { NavbarLinksGroup } from './LinksGroup'
 
 const mockdata = [
@@ -52,18 +50,16 @@ export function Navbar() {
   return (
     <nav className={classes.navbar}>
       <div className={classes.header}>
-        <Group justify="space-between">
-          <Logo style={{ width: rem(120) }} />
-        </Group>
+        <Group justify="space-between">{/* <Logo style={{ width: rem(120) }} /> */}</Group>
       </div>
 
       <ScrollArea className={classes.links}>
         <div className={classes.linksInner}>{links}</div>
       </ScrollArea>
 
-      <div className={classes.footer}>
+      {/* <div className={classes.footer}>
         <UserProfile />
-      </div>
+      </div> */}
     </nav>
   )
 }

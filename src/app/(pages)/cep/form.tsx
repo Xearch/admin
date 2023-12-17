@@ -47,7 +47,7 @@ export function Form() {
         />
       </ContainerForm>
 
-      {isLoading ? <SkeletonCepCard /> : address && <FindAddressByCepCard address={address} />}
+      {isLoading ? <SkeletonCepCard /> : <FindAddressByCepCard address={address} />}
     </>
   )
 }

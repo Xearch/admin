@@ -58,20 +58,6 @@ export default function Header() {
             <UserProfile visibleFrom="md" />
           </Group>
         </Container>
-        <Container size="md">
-          <Tabs
-            defaultValue="Home"
-            variant="outline"
-            visibleFrom="sm"
-            classNames={{
-              root: classes.tabs,
-              list: classes.tabsList,
-              tab: classes.tab,
-            }}
-          >
-            <Tabs.List>{items}</Tabs.List>
-          </Tabs>
-        </Container>
       </div>
     </div>
   )

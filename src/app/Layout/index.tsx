@@ -16,9 +16,9 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <div className={classes.main}>
         <Header />
-        <Flex mih="100vh">
+        <Flex>
           <Navbar />
-          <Flex direction="column" p={20} mih="100vh">
+          <Flex direction="column" px={20} mih="100vh" w="100%">
             {children}
           </Flex>
         </Flex>
