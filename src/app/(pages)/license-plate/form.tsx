@@ -37,6 +37,7 @@ export function Form() {
           setData(null)
           form.setValues({ license_plate: '' })
         }}
+        pageTitle="PLACA"
       >
         <MaskInput
           mask="aaa-9*99"

@@ -23,8 +23,8 @@ export function Form() {
         value.length === 0
           ? 'Campo obrigatório'
           : value.length < 4
-          ? 'O nome precisa ter pelo menos 4 caracteres'
-          : null,
+            ? 'O nome precisa ter pelo menos 4 caracteres'
+            : null,
     },
   })
 
@@ -49,6 +49,7 @@ export function Form() {
           setPeople(undefined)
           form.setValues({ name: '' })
         }}
+        pageTitle="NOME"
       >
         <TextInput
           miw={{ base: 100, sm: 500, xs: 290 }}

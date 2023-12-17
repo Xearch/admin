@@ -1,5 +1,5 @@
 import classes from '@/src/app/Layout/Navbar/Navbar.module.css'
-import { Group, ScrollArea } from '@mantine/core'
+import { ScrollArea } from '@mantine/core'
 import {
   IconNotes,
   IconCalendarStats,
@@ -10,16 +10,25 @@ import {
   IconLock,
 } from '@tabler/icons-react'
 
-import { tabsNames } from '../Header/tabsNames'
 import { NavbarLinksGroup } from './LinksGroup'
+import { tabsNames } from './tabsNames'
 
-const mockdata = [
+const mockData = [
   { label: 'Dashboard', icon: IconGauge, links: [{ label: 'Início', value: 'home' }] },
   {
     label: 'Consultas',
     icon: IconNotes,
     initiallyOpened: false,
     links: tabsNames,
+  },
+  {
+    label: 'Consultas Grátis',
+    icon: IconNotes,
+    initiallyOpened: false,
+    links: [
+      { label: 'Consulta por CNPJ', value: 'cnpj' },
+      { label: 'Consulta por CEP', value: 'cep' },
+    ],
   },
   {
     label: 'Releases',
@@ -45,21 +54,13 @@ const mockdata = [
 ]
 
 export function Navbar() {
-  const links = mockdata.map(item => <NavbarLinksGroup {...item} key={item.label} />)
+  const links = mockData.map(item => <NavbarLinksGroup {...item} key={item.label} />)
 
   return (
     <nav className={classes.navbar}>
-      <div className={classes.header}>
-        <Group justify="space-between">{/* <Logo style={{ width: rem(120) }} /> */}</Group>
-      </div>
-
       <ScrollArea className={classes.links}>
         <div className={classes.linksInner}>{links}</div>
       </ScrollArea>
-
-      {/* <div className={classes.footer}>
-        <UserProfile />
-      </div> */}
     </nav>
   )
 }

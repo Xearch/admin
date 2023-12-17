@@ -1,5 +1,15 @@
 .container {
   justify-content: center;
   width: 100%;
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
+}
+
+.card {
+  min-height: 35vh;
+  align-items: center;
+  justify-content: center;
+  gap: rem(30px);
+  height: 100%;
+  border: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  color: light-dark(rgb(52, 52, 52), gray);
 }

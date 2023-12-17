@@ -37,6 +37,7 @@ export function Form() {
           setPerson(null)
           form.setValues({ cnpj: '' })
         }}
+        pageTitle="CNPJ"
       >
         <MaskInput
           mask="99.999.999/9999-99"

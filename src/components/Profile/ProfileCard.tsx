@@ -10,7 +10,7 @@ type CardPros = {
 }
 export function ProfileCard({ data }: CardPros) {
   return (
-    <Card shadow="md" radius="md" className={classes.card} padding="xl" w="100%" h="100%">
+    <Card shadow="md" radius="md" className={classes.card} padding="xl" w="100%">
       <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
         <Title ta="center">DADOS DO PERFIL</Title>
       </SimpleGrid>

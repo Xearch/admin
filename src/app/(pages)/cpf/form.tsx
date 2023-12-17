@@ -79,6 +79,7 @@ export function Form() {
           setDataSpc(undefined)
           form.setValues({ cpf: '' })
         }}
+        pageTitle="CPF"
       >
         <Grid grow>
           <Grid.Col span={8}>
