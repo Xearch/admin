@@ -3,7 +3,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 import { Children } from '.'
 import { api } from '../services/api'
@@ -42,6 +42,8 @@ const localStorageKeys = {
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
+let authChanel: BroadcastChannel
+
 export default function AuthProvider({ children }: Children) {
   const router = useRouter()
   const [data, setData] = useState<SignInResponse>(() => {
@@ -71,15 +73,32 @@ export default function AuthProvider({ children }: Children) {
     router.push('/home')
 
     setData({ token, user })
+    authChanel.postMessage('signIn')
   }
 
   function signOut() {
     localStorage.removeItem(localStorageKeys.token)
     localStorage.removeItem(localStorageKeys.user)
-
+    authChanel.postMessage('signOut')
     setData({} as SignInResponse)
     router.push('/')
   }
+
+  useEffect(() => {
+    authChanel = new BroadcastChannel('auth')
+    authChanel.onmessage = message => {
+      switch (message.data) {
+        case 'signOut':
+          router.push('/')
+          break
+        case 'signIn':
+          router.push('/home')
+          break
+        default:
+          break
+      }
+    }
+  }, [router])
 
   return (
     <AuthContext.Provider
