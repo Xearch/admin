@@ -3,7 +3,7 @@
 import { CnsByCpfCard } from '@/src/app/(pages)/cpf/FindByCpfCards/CnsByCpfCard'
 import { CompleteCpfCard } from '@/src/app/(pages)/cpf/FindByCpfCards/CompleteCpfCard'
 import { SimpleCpfCard } from '@/src/app/(pages)/cpf/FindByCpfCards/SimpleCpfCard'
-import { CardSkeletonCpf } from '@/src/app/(pages)/cpf/FindByCpfCards/SkeletonCpfCard'
+import { CardsSkeletonUsersCpf } from '@/src/app/(pages)/cpf/FindByCpfCards/SkeletonCpfCard'
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import MaskInput from '@/src/components/form/InputMask'
 import { toastError } from '@/src/components/Notification/Notifications'
@@ -111,7 +111,7 @@ export function Form() {
         </Flex>
       </ContainerForm>
 
-      {isLoading && <CardSkeletonCpf />}
+      {isLoading && <CardsSkeletonUsersCpf />}
       {dataCpfSimple && <SimpleCpfCard data={dataCpfSimple} />}
       {dataCpfComplete && <CompleteCpfCard data={dataCpfComplete} />}
       {dataCns && <CnsByCpfCard data={dataCns} />}

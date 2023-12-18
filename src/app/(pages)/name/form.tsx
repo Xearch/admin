@@ -1,13 +1,12 @@
 'use client'
 
-import { CardSkeleton, FindByNameCard } from '@/src/app/(pages)/name/FindByNameCard/FindByNameCard'
+import { CardsSkeletonUsers, FindByNameCard } from '@/src/app/(pages)/name/FindByNameCard/FindByNameCard'
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import { toastError } from '@/src/components/Notification/Notifications'
 import { searchByName } from '@/src/services/endpoints/searchByName'
 import { FindByNameType } from '@/src/services/types'
-import { TextInput, Box, CloseButton, Alert } from '@mantine/core'
+import { TextInput, CloseButton } from '@mantine/core'
 import { useForm } from '@mantine/form'
-import { IconInfoCircle } from '@tabler/icons-react'
 import { useState } from 'react'
 
 export function Form() {
@@ -68,17 +67,7 @@ export function Form() {
         />
       </ContainerForm>
 
-      {isLoading ? (
-        <CardSkeleton />
-      ) : people && people.data?.length === 0 ? (
-        <Box maw={500} mx="auto" mt={50}>
-          <Alert variant="light" color="blue" title="Informação" icon={<IconInfoCircle />}>
-            Nenhum registro foi encontrado para a busca.
-          </Alert>
-        </Box>
-      ) : (
-        people && <FindByNameCard people={people} />
-      )}
+      {isLoading ? <CardsSkeletonUsers /> : people && <FindByNameCard people={people} />}
     </>
   )
 }

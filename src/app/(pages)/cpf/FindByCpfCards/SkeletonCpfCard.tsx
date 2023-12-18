@@ -1,7 +1,7 @@
 import classes from '@/src/global/style/Cards.module.css'
 import { Card, SimpleGrid, Container, rem, Flex, Skeleton } from '@mantine/core'
 
-export function CardSkeletonCpf() {
+export function CardsSkeletonUsersCpf() {
   return (
     <Container className={classes.container} size="lg" py="xl">
       <SimpleGrid cols={{ base: 1, md: 1 }} spacing="md">
