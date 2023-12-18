@@ -1,4 +1,4 @@
-export interface Data {
+interface Data {
   success: boolean
   created_at: string
   tem_restricao_spc: string
@@ -25,31 +25,31 @@ export interface Data {
   alertaDocumento: string
   dataConsulta: string
 }
-export interface TelefoneCelular {
+interface TelefoneCelular {
   'numero-ddd': string
   numero: string
 }
-export interface Endereco {
+interface Endereco {
   logradouro: string
   numero: string
   bairro: string
   cep: string
   cidade: Cidade
 }
-export interface Cidade {
+interface Cidade {
   nome: string
   estado: Estado
 }
-export interface Estado {
+interface Estado {
   'sigla-uf': string
 }
-export interface DividasSpc {
+interface DividasSpc {
   'quantidade-total': string
   'data-ultima-ocorrencia': string
   'valor-total': string
   detalhes?: Detalhes[] | null
 }
-export interface Detalhes {
+interface Detalhes {
   'nome-associado': string
   'data-inclusao': string
   'data-vencimento': string
@@ -61,11 +61,11 @@ export interface Detalhes {
   'cidade-associado'?: CidadeAssociado
   'telefone-associado'?: TelefoneAssociado
 }
-export interface CidadeAssociado {
+interface CidadeAssociado {
   nome: string
   estado: Estado
 }
-export interface TelefoneAssociado {
+interface TelefoneAssociado {
   'numero-ddd': string
   numero: string
 }
