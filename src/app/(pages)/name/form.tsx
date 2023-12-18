@@ -23,8 +23,8 @@ export function Form() {
         value.length === 0
           ? 'Campo obrigatório'
           : value.length < 4
-            ? 'O nome precisa ter pelo menos 4 caracteres'
-            : null,
+          ? 'O nome precisa ter pelo menos 4 caracteres'
+          : null,
     },
   })
 
