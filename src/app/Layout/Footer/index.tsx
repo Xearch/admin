@@ -1,6 +1,4 @@
-import { Text, Container, ActionIcon, Group, rem, Flex } from '@mantine/core'
-import { IconBrandInstagram, IconBrandWhatsapp } from '@tabler/icons-react'
-import Link from 'next/link'
+import { Text, Container, Flex } from '@mantine/core'
 
 import { Logo } from '../logo'
 import classes from './Footer.module.css'
@@ -19,20 +17,6 @@ export function Footer() {
         <Text c="dimmed" size="sm">
           © 2023 Xearch. Todos os direitos reservados.
         </Text>
-
-        {/* <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
-          <ActionIcon size="lg" color="gray" variant="subtle">
-            <Link href="https://wa.me/5587991272829" target="_blank">
-              <IconBrandWhatsapp style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-            </Link>
-          </ActionIcon>
-
-          <ActionIcon size="lg" color="gray" variant="subtle">
-            <Link href="https://www.instagram.com/walygo_" target="_blank">
-              <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-            </Link>
-          </ActionIcon>
-        </Group> */}
       </Container>
     </footer>
   )
