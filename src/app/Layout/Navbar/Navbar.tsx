@@ -1,14 +1,6 @@
 import classes from '@/src/app/Layout/Navbar/Navbar.module.css'
 import { ScrollArea } from '@mantine/core'
-import {
-  IconNotes,
-  IconCalendarStats,
-  IconGauge,
-  IconPresentationAnalytics,
-  IconFileAnalytics,
-  IconAdjustments,
-  IconLock,
-} from '@tabler/icons-react'
+import { IconNotes, IconGauge, Icon24Hours } from '@tabler/icons-react'
 
 import { NavbarLinksGroup } from './LinksGroup'
 import { tabsNames } from './tabsNames'
@@ -16,7 +8,7 @@ import { tabsNames } from './tabsNames'
 const mockData = [
   { label: 'Dashboard', icon: IconGauge, links: [{ label: 'Início', value: 'home' }] },
   {
-    label: 'Consultas',
+    label: 'Consultas Pro',
     icon: IconNotes,
     initiallyOpened: false,
     links: tabsNames,
@@ -31,26 +23,35 @@ const mockData = [
     ],
   },
   {
-    label: 'Releases',
-    icon: IconCalendarStats,
+    label: 'Contato',
+    icon: Icon24Hours,
     links: [
-      { label: 'Upcoming releases', value: '/' },
-      { label: 'Previous releases', value: '/' },
-      { label: 'Releases schedule', value: '/' },
+      {
+        label: 'Suporte',
+        value: 'https://api.whatsapp.com/send/?phone=5587991272829&text&type=phone_number&app_absent=0',
+      },
     ],
   },
-  { label: 'Analytics', icon: IconPresentationAnalytics },
-  { label: 'Contracts', icon: IconFileAnalytics },
-  { label: 'Settings', icon: IconAdjustments },
-  {
-    label: 'Security',
-    icon: IconLock,
-    links: [
-      { label: 'Enable 2FA', value: '/' },
-      { label: 'Change password', value: '/' },
-      { label: 'Recovery codes', value: '/' },
-    ],
-  },
+  // {
+  //   label: 'Releases',
+  //   icon: IconCalendarStats,
+  //   links: [
+  //     { label: 'Upcoming releases', value: '/' },
+  //     { label: 'Previous releases', value: '/' },
+  //     { label: 'Releases schedule', value: '/' },
+  //   ],
+  // },
+  // { label: 'Contracts', icon: IconFileAnalytics },
+  // { label: 'Settings', icon: IconAdjustments },
+  // {
+  //   label: 'Security',
+  //   icon: IconLock,
+  //   links: [
+  //     { label: 'Enable 2FA', value: '/' },
+  //     { label: 'Change password', value: '/' },
+  //     { label: 'Recovery codes', value: '/' },
+  //   ],
+  // },
 ]
 
 export function Navbar() {
