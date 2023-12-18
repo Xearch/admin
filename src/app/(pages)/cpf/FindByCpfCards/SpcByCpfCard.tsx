@@ -14,7 +14,7 @@ export function SpcByCpfCard({ data: { data } }: CardPros) {
           <Text mx="5" className={classes.cardTitle}>
             Consultado em:
           </Text>
-          <Text className={classes.cardContent}>{data?.dataConsulta}</Text>
+          <Text className={classes.cardContent}>{data.data?.dataConsulta}</Text>
         </Flex>
 
         {/* DADOS PRINCIPAIS */}
@@ -26,172 +26,172 @@ export function SpcByCpfCard({ data: { data } }: CardPros) {
 
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="1">
           <Flex>
-            <IconToCopyText text={data?.nome} />
+            <IconToCopyText text={data.data?.nome} />
             <Text mx="5" className={classes.cardTitle}>
               Nome:
             </Text>
-            <Text className={classes.cardContent}>{data?.nome}</Text>
+            <Text className={classes.cardContent}>{data.data?.nome}</Text>
           </Flex>
 
           <Flex>
-            <IconToCopyText text={data?.extrangeiro} />
+            <IconToCopyText text={data.data?.extrangeiro} />
             <Text mx="5" className={classes.cardTitle}>
               Estrangeiro:
             </Text>
-            <Text className={classes.cardContent}>{data?.extrangeiro}</Text>
+            <Text className={classes.cardContent}>{data.data?.extrangeiro}</Text>
           </Flex>
 
-          {data?.rg && (
+          {data.data?.rg && (
             <Flex mt="md">
-              <IconToCopyText text={data?.rg} />
+              <IconToCopyText text={data.data?.rg} />
               <Text mx="5" className={classes.cardTitle}>
                 RG:
               </Text>
-              <Text className={classes.cardContent}>{data?.rg}</Text>
+              <Text className={classes.cardContent}>{data.data?.rg}</Text>
             </Flex>
           )}
 
-          {data?.uf_rg && (
+          {data.data?.uf_rg && (
             <Flex mt="md">
-              <IconToCopyText text={data?.uf_rg} />
+              <IconToCopyText text={data.data?.uf_rg} />
               <Text mx="5" className={classes.cardTitle}>
                 RG UF:
               </Text>
-              <Text className={classes.cardContent}>{data?.uf_rg}</Text>
+              <Text className={classes.cardContent}>{data.data?.uf_rg}</Text>
             </Flex>
           )}
 
-          {data?.cpf && (
+          {data.data?.cpf && (
             <Flex mt="md">
-              <IconToCopyText text={data?.cpf} />
+              <IconToCopyText text={data.data?.cpf} />
               <Text mx="5" className={classes.cardTitle}>
                 CPF:
               </Text>
-              <Text className={classes.cardContent}>{data?.cpf}</Text>
+              <Text className={classes.cardContent}>{data.data?.cpf}</Text>
             </Flex>
           )}
 
-          {data?.tituloEleitoral && (
+          {data.data?.tituloEleitoral && (
             <Flex mt="md">
-              <IconToCopyText text={data?.tituloEleitoral} />
+              <IconToCopyText text={data.data?.tituloEleitoral} />
               <Text mx="5" className={classes.cardTitle}>
                 Título eleitoral:
               </Text>
-              <Text className={classes.cardContent}>{data?.tituloEleitoral}</Text>
+              <Text className={classes.cardContent}>{data.data?.tituloEleitoral}</Text>
             </Flex>
           )}
 
-          {data?.cpfRegiao && (
+          {data.data?.cpfRegiao && (
             <Flex mt="md">
-              <IconToCopyText text={data?.cpfRegiao} />
+              <IconToCopyText text={data.data?.cpfRegiao} />
               <Text mx="5" className={classes.cardTitle}>
                 Região do CPF:
               </Text>
-              <Text className={classes.cardContent}>{data?.cpfRegiao}</Text>
+              <Text className={classes.cardContent}>{data.data?.cpfRegiao}</Text>
             </Flex>
           )}
 
-          {data?.dataNascimento && (
+          {data.data?.dataNascimento && (
             <Flex mt="md">
-              <IconToCopyText text={data?.dataNascimento} />
+              <IconToCopyText text={data.data?.dataNascimento} />
               <Text mx="5" className={classes.cardTitle}>
                 Nascimento:
               </Text>
-              <Text className={classes.cardContent}>{data?.dataNascimento}</Text>
+              <Text className={classes.cardContent}>{data.data?.dataNascimento}</Text>
             </Flex>
           )}
 
-          {data?.signo && (
+          {data.data?.signo && (
             <Flex mt="md">
-              <IconToCopyText text={data?.signo} />
+              <IconToCopyText text={data.data?.signo} />
               <Text mx="5" className={classes.cardTitle}>
                 Signo:
               </Text>
-              <Text className={classes.cardContent}>{data?.signo}</Text>
+              <Text className={classes.cardContent}>{data.data?.signo}</Text>
             </Flex>
           )}
 
-          {data?.idade && (
+          {data.data?.idade && (
             <Flex mt="md">
-              <IconToCopyText text={data?.idade} />
+              <IconToCopyText text={data.data?.idade} />
               <Text mx="5" className={classes.cardTitle}>
                 Idade:
               </Text>
-              <Text className={classes.cardContent}>{data?.idade}</Text>
+              <Text className={classes.cardContent}>{data.data?.idade}</Text>
             </Flex>
           )}
 
-          {data?.dividasSpc['quantidade-total'] && (
+          {data.data?.dividasSpc && data.data?.dividasSpc['quantidade-total'] && (
             <Flex mt="md">
-              <IconToCopyText text={data?.dividasSpc['quantidade-total']} />
+              <IconToCopyText text={data.data?.dividasSpc['quantidade-total']} />
               <Text mx="5" className={classes.cardTitle}>
                 Qtd dívidas SPC:
               </Text>
-              <Text className={classes.cardContent}>{data?.tem_restricao_spc}</Text>
+              <Text className={classes.cardContent}>{data.data?.dividasSpc['quantidade-total']}</Text>
             </Flex>
           )}
 
-          {data?.dividasSpc['valor-total'] && (
+          {data.data?.dividasSpc && data.data?.dividasSpc['valor-total'] && (
             <Flex mt="md">
-              <IconToCopyText text={data?.dividasSpc['valor-total']} />
+              <IconToCopyText text={data.data?.dividasSpc['valor-total']} />
               <Text mx="5" className={classes.cardTitle}>
                 Dívidas SPC:
               </Text>
-              <Text className={classes.cardContent}>{data?.dividasSpc['valor-total']}</Text>
+              <Text className={classes.cardContent}>{data.data?.dividasSpc['valor-total']}</Text>
             </Flex>
           )}
 
-          {data?.sexo && (
+          {data.data?.sexo && (
             <Flex mt="md">
-              <IconToCopyText text={data?.sexo} />
+              <IconToCopyText text={data.data?.sexo} />
               <Text mx="5" className={classes.cardTitle}>
                 Sexo:
               </Text>
-              <Text className={classes.cardContent}>{data?.sexo}</Text>
+              <Text className={classes.cardContent}>{data.data?.sexo}</Text>
             </Flex>
           )}
 
-          {data?.nomeMae && (
+          {data.data?.nomeMae && (
             <Flex mt="md">
-              <IconToCopyText text={data?.nomeMae} />
+              <IconToCopyText text={data.data?.nomeMae} />
               <Text mx="5" className={classes.cardTitle}>
                 Mãe:
               </Text>
-              <Text className={classes.cardContent}>{data?.nomeMae}</Text>
+              <Text className={classes.cardContent}>{data.data?.nomeMae}</Text>
             </Flex>
           )}
 
-          {data?.nomePai && (
+          {data.data?.nomePai && (
             <Flex mt="md">
-              <IconToCopyText text={data?.nomePai} />
+              <IconToCopyText text={data.data?.nomePai} />
               <Text mx="5" className={classes.cardTitle}>
                 Pai:
               </Text>
-              <Text className={classes.cardContent}>{data?.nomePai}</Text>
+              <Text className={classes.cardContent}>{data.data?.nomePai}</Text>
             </Flex>
           )}
 
-          {data?.telefoneCelular?.numero && (
+          {data.data?.telefoneCelular && data.data?.telefoneCelular.numero && (
             <Flex mt="md">
               <IconToCopyText
-                text={`(${data?.telefoneCelular['numero-ddd']}) ${data?.telefoneCelular.numero}`}
+                text={`(${data.data?.telefoneCelular['numero-ddd']}) ${data.data?.telefoneCelular.numero}`}
               />
               <Text mx="5" className={classes.cardTitle}>
                 Telefone:
               </Text>
               <Text
                 className={classes.cardContent}
-              >{`(${data?.telefoneCelular['numero-ddd']}) ${data?.telefoneCelular.numero}`}</Text>
+              >{`(${data.data?.telefoneCelular['numero-ddd']}) ${data.data?.telefoneCelular.numero}`}</Text>
             </Flex>
           )}
 
-          {data?.ultimoTelefone && (
+          {data.data?.ultimoTelefone && (
             <Flex mt="md">
-              <IconToCopyText text={data?.ultimoTelefone} />
+              <IconToCopyText text={data.data?.ultimoTelefone} />
               <Text mx="5" className={classes.cardTitle}>
                 Último Telefone:
               </Text>
-              <Text className={classes.cardContent}>{data?.ultimoTelefone}</Text>
+              <Text className={classes.cardContent}>{data.data?.ultimoTelefone}</Text>
             </Flex>
           )}
         </SimpleGrid>
@@ -204,63 +204,63 @@ export function SpcByCpfCard({ data: { data } }: CardPros) {
         <Divider mt="md" mb={20} />
 
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="1">
-          {data?.endereco?.cep && (
+          {data.data?.endereco?.cep && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.cep} />
+              <IconToCopyText text={data.data?.endereco?.cep} />
               <Text mx="5" className={classes.cardTitle}>
                 CEP:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.cep}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.cep}</Text>
             </Flex>
           )}
 
-          {data?.endereco?.cidade?.estado['sigla-uf'] && (
+          {data.data?.endereco?.cidade?.estado && data.data?.endereco?.cidade?.estado['sigla-uf'] && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.cidade?.estado['sigla-uf']} />
+              <IconToCopyText text={data.data?.endereco?.cidade?.estado['sigla-uf']} />
               <Text mx="5" className={classes.cardTitle}>
                 UF:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.cidade?.estado['sigla-uf']}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.cidade?.estado['sigla-uf']}</Text>
             </Flex>
           )}
 
-          {data?.endereco?.cidade?.nome && (
+          {data.data?.endereco?.cidade?.nome && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.cidade?.nome} />
+              <IconToCopyText text={data.data?.endereco?.cidade?.nome} />
               <Text mx="5" className={classes.cardTitle}>
                 Cidade:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.cidade?.nome}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.cidade?.nome}</Text>
             </Flex>
           )}
 
-          {data?.endereco?.logradouro && (
+          {data.data?.endereco?.logradouro && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.logradouro} />
+              <IconToCopyText text={data.data?.endereco?.logradouro} />
               <Text mx="5" className={classes.cardTitle}>
                 Logradouro:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.logradouro}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.logradouro}</Text>
             </Flex>
           )}
 
-          {data?.endereco?.numero && (
+          {data.data?.endereco?.numero && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.numero} />
+              <IconToCopyText text={data.data?.endereco?.numero} />
               <Text mx="5" className={classes.cardTitle}>
                 Número:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.numero}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.numero}</Text>
             </Flex>
           )}
 
-          {data?.endereco?.bairro && (
+          {data.data?.endereco?.bairro && (
             <Flex mt="md">
-              <IconToCopyText text={data?.endereco?.bairro} />
+              <IconToCopyText text={data.data?.endereco?.bairro} />
               <Text mx="5" className={classes.cardTitle}>
                 Bairro:
               </Text>
-              <Text className={classes.cardContent}>{data?.endereco?.bairro}</Text>
+              <Text className={classes.cardContent}>{data.data?.endereco?.bairro}</Text>
             </Flex>
           )}
         </SimpleGrid>

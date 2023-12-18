@@ -1,4 +1,6 @@
 interface Data {
+  message?: string
+  success: boolean
   cpf: string
   nome: string
   data_nascimento: string

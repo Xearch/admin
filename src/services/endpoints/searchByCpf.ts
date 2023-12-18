@@ -37,7 +37,7 @@ export const searchCnsByCpf: FindCnsByCpf = async cpf => {
       cadsus: {
         ...response.data.cadsus,
         cpf: setMaskCpf(response.data.cadsus.cpf),
-        data_nascimento: format(new Date(response.data.cadsus.data_nascimento), `dd/MM/yyyy`),
+        data_nascimento: response.data.cadsus.data_nascimento || '',
       } as FindCnsByCpfType['data']['cadsus'],
     } as FindCnsByCpfType['data'],
   } as FindCnsByCpfType
@@ -50,6 +50,7 @@ export const searchByCpfSimple: FindSimpleByCpf = async cpf => {
   const { data: response } = await api.get<FindSimpleCpfType>(`cpf/${getOnlyNumbers(cpf)}`, {
     params: { type: 'simple', v: 1 },
   })
+  if (response.data.success === false) throw new Error(response.data.message)
   const formattedResponse = {
     ...response,
     data: {

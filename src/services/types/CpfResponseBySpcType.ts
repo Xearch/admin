@@ -1,4 +1,6 @@
 export interface Data {
+  success: boolean
+  created_at: string
   tem_restricao_spc: string
   nome: string
   idade: string
@@ -30,7 +32,6 @@ export interface TelefoneCelular {
 export interface Endereco {
   logradouro: string
   numero: string
-  complemento: string
   bairro: string
   cep: string
   cidade: Cidade
@@ -46,7 +47,7 @@ export interface DividasSpc {
   'quantidade-total': string
   'data-ultima-ocorrencia': string
   'valor-total': string
-  detalhes: Detalhes
+  detalhes?: Detalhes[] | null
 }
 export interface Detalhes {
   'nome-associado': string
@@ -57,8 +58,8 @@ export interface Detalhes {
   'registro-instituicao-financeira': string
   'comprador-fiador-avalista': string
   valor: string
-  'cidade-associado': CidadeAssociado
-  'telefone-associado': TelefoneAssociado
+  'cidade-associado'?: CidadeAssociado
+  'telefone-associado'?: TelefoneAssociado
 }
 export interface CidadeAssociado {
   nome: string
@@ -69,7 +70,8 @@ export interface TelefoneAssociado {
   numero: string
 }
 export interface CpfResponseBySpcType {
-  data: Data
-  success: boolean
+  data: {
+    data: Data
+  }
   ip: string
 }

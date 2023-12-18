@@ -184,13 +184,13 @@ export function CompleteCpfCard({ data }: CardPros) {
             </Flex>
           )}
 
-          {data.data.score && (
+          {data.data.score >= 0 && (
             <Flex mt="md">
-              <IconToCopyText text={data.data.score} />
+              <IconToCopyText text={String(data.data.score)} />
               <Text mx="5" className={classes.cardTitle}>
                 Score Serasa:
               </Text>
-              <Text className={classes.cardContent}>{data.data.score}</Text>
+              <Text className={classes.cardContent}>{String(data.data.score)}</Text>
             </Flex>
           )}
 
