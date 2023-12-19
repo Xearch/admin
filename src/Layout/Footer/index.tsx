@@ -1,4 +1,4 @@
-import { Text, Container, Flex } from '@mantine/core'
+import { Container, Flex, Text } from '@mantine/core'
 
 import { Logo } from '../logo'
 import classes from './Footer.module.css'

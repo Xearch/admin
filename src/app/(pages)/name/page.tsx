@@ -1,4 +1,4 @@
-import Layout from '@/src/app/Layout/index'
+import Layout from '@/src/Layout/index'
 
 import { Form } from './form'
 

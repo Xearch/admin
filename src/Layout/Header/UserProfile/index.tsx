@@ -1,22 +1,22 @@
-import classes from '@/src/app/Layout/Header/UserProfile/UserProfile.module.css'
 import { useAuth } from '@/src/contexts/AuthContext'
+import classes from '@/src/Layout/Header/UserProfile/UserProfile.module.css'
 import {
-  Menu,
-  UnstyledButton,
-  Group,
   Avatar,
-  rem,
-  useMantineColorScheme,
-  Text,
+  Group,
   MantineSize,
+  Menu,
+  rem,
+  Text,
+  UnstyledButton,
+  useMantineColorScheme,
 } from '@mantine/core'
 import {
   IconChevronDown,
-  IconSun,
+  IconLogout,
   IconMoon,
   IconSettings,
+  IconSun,
   IconSwitchHorizontal,
-  IconLogout,
 } from '@tabler/icons-react'
 import cx from 'clsx'
 import router from 'next/router'

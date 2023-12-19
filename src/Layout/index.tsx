@@ -1,8 +1,8 @@
 'use client'
 
-import { Footer } from '@/src/app/Layout/Footer'
-import Header from '@/src/app/Layout/Header'
-import classes from '@/src/app/Layout/Layout.module.css'
+import { Footer } from '@/src/Layout/Footer'
+import Header from '@/src/Layout/Header'
+import classes from '@/src/Layout/Layout.module.css'
 import { Flex } from '@mantine/core'
 
 import { Navbar } from './Navbar/Navbar'

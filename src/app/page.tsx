@@ -1,7 +1,7 @@
 'use client'
 
-import { Logo } from '@/src/app/Layout/logo'
-import { TextInput, PasswordInput, Anchor, Paper, Container, Group, Button } from '@mantine/core'
+import { Logo } from '@/src/Layout/logo'
+import { Anchor, Button, Container, Group, Paper, PasswordInput, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 import { toastError } from '../components/Notification/Notifications'

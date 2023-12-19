@@ -1,4 +1,4 @@
-import classes from '@/src/app/Layout/Navbar/Navbar.module.css'
+import classes from '@/src/Layout/Navbar/Navbar.module.css'
 import { ScrollArea } from '@mantine/core'
 import { Icon24Hours, IconGauge, IconNotes } from '@tabler/icons-react'
 

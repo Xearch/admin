@@ -1,7 +1,7 @@
 'use client'
 
-import { Logo } from '@/src/app/Layout/logo'
-import { TextInput, PasswordInput, Paper, Container, Button } from '@mantine/core'
+import { Logo } from '@/src/Layout/logo'
+import { Button, Container, Paper, PasswordInput, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useRouter } from 'next/navigation'
 

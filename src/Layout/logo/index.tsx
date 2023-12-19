@@ -1,6 +1,6 @@
-import classes from '@/src/app/Layout/logo/Logo.module.css'
 import logoDark from '@/src/assets/dark_logo.png'
 import logoWhite from '@/src/assets/white_logo.png'
+import classes from '@/src/Layout/logo/Logo.module.css'
 import { Flex, FlexProps, useMantineColorScheme } from '@mantine/core'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'

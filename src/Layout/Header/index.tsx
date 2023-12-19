@@ -1,9 +1,9 @@
 'use client'
 
-import classes from '@/src/app/Layout/Header/Header.module.css'
-import { UserProfile } from '@/src/app/Layout/Header/UserProfile'
-import { Logo } from '@/src/app/Layout/logo'
-import { Burger, Popover, Flex } from '@mantine/core'
+import classes from '@/src/Layout/Header/Header.module.css'
+import { UserProfile } from '@/src/Layout/Header/UserProfile'
+import { Logo } from '@/src/Layout/logo'
+import { Burger, Flex, Popover } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
 export default function Header() {
