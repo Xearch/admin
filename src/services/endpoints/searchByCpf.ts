@@ -36,6 +36,9 @@ export const searchCnsByCpf: FindCnsByCpf = async cpf => {
       created_at: format(new Date(), `dd/MM/yyyy`),
       cadsus: {
         ...response.data.cadsus,
+        cns_url: response.data.cadsus.cartao_cns
+          ? `https://api.xearch.pro${response.data.cadsus.cartao_cns}`
+          : '',
         cpf: setMaskCpf(response.data.cadsus.cpf),
         data_nascimento: response.data.cadsus.data_nascimento || '',
       } as FindCnsByCpfType['data']['cadsus'],

@@ -7,6 +7,7 @@ export interface Cadsus {
   cpf: string
   cns: string
   cartao_cns: string
+  cns_url: string
   nome: string
   data_nascimento: string
   idade: number

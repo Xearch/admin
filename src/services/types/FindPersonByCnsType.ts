@@ -6,6 +6,7 @@ interface Data {
 interface Cadsus {
   cpf: string
   cns: string
+  cns_url: string
   cartao_cns: string
   nome: string
   data_nascimento: string

@@ -24,6 +24,12 @@ export function FindPersonByCnsCard({ data }: CardPros) {
 
         <Divider mt="md" mb={20} />
 
+        {/* {data.data.cadsus.cns_url && (
+          <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
+            <Image src={data.data.cadsus.cns_url} alt="CNS" width={300} height={300} />
+          </SimpleGrid>
+        )} */}
+
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="1">
           <Flex mt="md">
             <IconToCopyText text={data.data.cadsus.nome} />

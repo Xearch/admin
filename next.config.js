@@ -3,6 +3,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  images: {
+    domains: ['api.xearch.pro'],
+  },
   reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,

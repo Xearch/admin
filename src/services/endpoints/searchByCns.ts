@@ -17,6 +17,9 @@ export const searchPersonByCns: SearchCnsByCpf = async cns => {
       cadsus: {
         ...response.data.cadsus,
         cpf: setMaskCpf(response.data.cadsus.cpf),
+        cns_url: response.data.cadsus.cartao_cns
+          ? `https://api.xearch.pro${response.data.cadsus.cartao_cns}`
+          : '',
         data_nascimento: response.data.cadsus.data_nascimento || '',
       } as FindPersonByCnsType['data']['cadsus'],
     } as FindPersonByCnsType['data'],

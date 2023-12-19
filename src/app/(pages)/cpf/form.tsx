@@ -16,7 +16,7 @@ import {
 import { CpfResponseBySpcType, FindCompleteCpfType, FindSimpleCpfType } from '@/src/services/types'
 import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
 import { validateCpf } from '@/src/services/utils/validateCpf'
-import { Group, Radio, Grid, Flex } from '@mantine/core'
+import { Flex, Grid, Group, Radio } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useState } from 'react'
 

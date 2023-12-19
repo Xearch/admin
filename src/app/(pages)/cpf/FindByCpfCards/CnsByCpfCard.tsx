@@ -1,7 +1,7 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
-import { Text, Card, SimpleGrid, Container, Flex, Title, Divider } from '@mantine/core'
+import { Card, Container, Divider, Flex, SimpleGrid, Text, Title } from '@mantine/core'
 
 type CardPros = {
   data: FindCnsByCpfType
@@ -23,6 +23,12 @@ export function CnsByCpfCard({ data }: CardPros) {
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />
+
+        {/* {data.data.cadsus.cns_url && (
+          <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
+            <Image src={data.data.cadsus.cns_url} alt="CNS" width={300} height={300} />
+          </SimpleGrid>
+        )} */}
 
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="1">
           <Flex mt="md">
