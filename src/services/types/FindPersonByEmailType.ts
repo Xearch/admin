@@ -1,7 +1,7 @@
 interface Data {
   nome: string
   cpf: string
-  telefone: string
+  email: string
 }
 export interface FindPersonByEmailType {
   dataConsulta: string
