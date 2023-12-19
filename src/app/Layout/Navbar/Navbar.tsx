@@ -1,6 +1,6 @@
 import classes from '@/src/app/Layout/Navbar/Navbar.module.css'
 import { ScrollArea } from '@mantine/core'
-import { IconNotes, IconGauge, Icon24Hours } from '@tabler/icons-react'
+import { Icon24Hours, IconGauge, IconNotes } from '@tabler/icons-react'
 
 import { NavbarLinksGroup } from './LinksGroup'
 import { tabsNames } from './tabsNames'
@@ -28,7 +28,7 @@ const mockData = [
     links: [
       {
         label: 'Suporte',
-        value: 'https://api.whatsapp.com/send/?phone=5587991272829&text&type=phone_number&app_absent=0',
+        value: 'https://tawk.to/xearchsuporte',
       },
     ],
   },
