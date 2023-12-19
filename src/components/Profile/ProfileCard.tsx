@@ -1,7 +1,7 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import classes from '@/src/global/style/Cards.module.css'
 import { UserProfileType } from '@/src/services/types'
-import { Text, Card, SimpleGrid, Flex, Divider, Title } from '@mantine/core'
+import { Card, Divider, Flex, SimpleGrid, Text, Title } from '@mantine/core'
 
 import { IconToCopyText } from '../IconToCopyText'
 

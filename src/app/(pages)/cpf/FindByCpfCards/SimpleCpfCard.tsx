@@ -1,7 +1,7 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindSimpleCpfType } from '@/src/services/types'
-import { Text, Card, SimpleGrid, Container, Flex } from '@mantine/core'
+import { Card, Container, Flex, SimpleGrid, Text } from '@mantine/core'
 
 type CardPros = {
   data: FindSimpleCpfType

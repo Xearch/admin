@@ -1,7 +1,7 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
 import classes from '@/src/global/style/Cards.module.css'
 import { CnpjResponse } from '@/src/services/types'
-import { Text, Card, SimpleGrid, Container, Flex, Skeleton, Divider, Title } from '@mantine/core'
+import { Card, Container, Divider, Flex, SimpleGrid, Skeleton, Text, Title } from '@mantine/core'
 
 type CardPros = {
   person: CnpjResponse

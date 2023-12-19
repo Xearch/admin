@@ -3,7 +3,7 @@ import { IconToCopyText } from '@/src/components/IconToCopyText'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindCompleteCpfType } from '@/src/services/types'
 import parseCurrency from '@/src/services/utils/parseCurrency'
-import { Text, Card, SimpleGrid, Container, Flex, Title, Divider } from '@mantine/core'
+import { Card, Container, Divider, Flex, SimpleGrid, Text, Title } from '@mantine/core'
 
 type CardPros = {
   data: FindCompleteCpfType

@@ -1,3 +1,4 @@
+import classes from '@/src/global/style/Cards.module.css'
 import { copyToClipboard } from '@/src/services/utils/copyToClipboard'
 import { Tooltip } from '@mantine/core'
 import { IconCopy } from '@tabler/icons-react'
@@ -12,7 +13,7 @@ export function IconToCopyText({ text }: Props) {
     text && (
       <Tooltip label="Copiar">
         <IconCopy
-          fontSize={1}
+          className={classes.cardTitle}
           onClick={() => {
             copyToClipboard(text)
             toastSuccess('Copiado com sucesso')

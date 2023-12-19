@@ -2,7 +2,7 @@ import { NotFoundRegister } from '@/src/components/form'
 import { IconToCopyText } from '@/src/components/IconToCopyText'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindByNameType } from '@/src/services/types'
-import { Text, Card, SimpleGrid, Container, rem, Flex, Skeleton } from '@mantine/core'
+import { Card, Container, Flex, rem, SimpleGrid, Skeleton, Text } from '@mantine/core'
 import { IconUser } from '@tabler/icons-react'
 
 type CardPros = {
