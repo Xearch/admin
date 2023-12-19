@@ -1,8 +1,8 @@
-import classes from '@/src/Layout/Navbar/Navbar.module.css'
+import classes from '@/src/Layout/Sidebar/Sidebar.module.css'
 import { ScrollArea } from '@mantine/core'
 import { Icon24Hours, IconGauge, IconNotes } from '@tabler/icons-react'
 
-import { NavbarLinksGroup } from './LinksGroup'
+import { SidebarLinksGroup } from './LinksGroup'
 import { tabsNames } from './tabsNames'
 
 const mockData = [
@@ -54,11 +54,11 @@ const mockData = [
   // },
 ]
 
-export function Navbar() {
-  const links = mockData.map(item => <NavbarLinksGroup {...item} key={item.label} />)
+export function Sidebar() {
+  const links = mockData.map(item => <SidebarLinksGroup {...item} key={item.label} />)
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={classes.Sidebar}>
       <ScrollArea className={classes.links}>
         <div className={classes.linksInner}>{links}</div>
       </ScrollArea>

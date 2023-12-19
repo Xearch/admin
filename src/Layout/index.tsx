@@ -5,7 +5,7 @@ import Header from '@/src/Layout/Header'
 import classes from '@/src/Layout/Layout.module.css'
 import { Flex } from '@mantine/core'
 
-import { Navbar } from './Navbar/Navbar'
+import { Sidebar } from './Sidebar/Sidebar'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className={classes.main}>
         <Header />
         <Flex>
-          <Navbar />
+          <Sidebar />
           <Flex direction="column" px={20} mih="100vh" w="100%">
             {children}
           </Flex>

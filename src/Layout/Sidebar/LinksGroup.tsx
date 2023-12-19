@@ -1,6 +1,6 @@
 'use client'
 
-import { Group, Box, Collapse, ThemeIcon, UnstyledButton, rem } from '@mantine/core'
+import { Box, Collapse, Group, ThemeIcon, UnstyledButton, rem } from '@mantine/core'
 import { IconChevronRight } from '@tabler/icons-react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -53,7 +53,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
   )
 }
 
-export function NavbarLinksGroup(data: any) {
+export function SidebarLinksGroup(data: any) {
   return (
     <Box p="md">
       <LinksGroup {...data} />
