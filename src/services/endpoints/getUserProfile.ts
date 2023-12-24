@@ -24,5 +24,5 @@ export const getUserProfile: GetUserProfile = async () => {
 }
 
 export function useGetUserProfile(): SWRResponse<UserProfileType | undefined, any, any> {
-  return useSWR('getUserProfile', () => getUserProfile())
+  return useSWR('getUserProfile', () => getUserProfile(), { revalidateOnFocus: true })
 }

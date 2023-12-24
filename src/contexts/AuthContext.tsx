@@ -1,9 +1,10 @@
+/* eslint-disable import/no-mutable-exports */
 /* eslint-disable react/jsx-no-constructed-context-values */
 
 'use client'
 
 import { useRouter } from 'next/navigation'
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 import { Children } from '.'
 import { api } from '../services/api'
@@ -35,14 +36,14 @@ interface AuthContextData {
   signOut: () => void
 }
 
-const localStorageKeys = {
+export const localStorageKeys = {
   token: '@xearch:token',
   user: '@xearch:user',
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
-let authChanel: BroadcastChannel
+export let authChanel: BroadcastChannel
 
 export default function AuthProvider({ children }: Children) {
   const router = useRouter()
