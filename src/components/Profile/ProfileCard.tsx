@@ -12,7 +12,9 @@ export function ProfileCard({ data }: CardPros) {
   return (
     <Card shadow="md" radius="md" className={classes.card} padding="xl" w="100%">
       <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-        <Title ta="center">DADOS DO PERFIL</Title>
+        <Title className={classes.title} ta="center">
+          DADOS DO PERFIL
+        </Title>
       </SimpleGrid>
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing="1">
         {data.user.name && (
@@ -56,7 +58,7 @@ export function ProfileCard({ data }: CardPros) {
       {data.user.keys && data.user.keys.length > 0 && (
         <>
           <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-            <Title fz="xl" ta="center">
+            <Title className={classes.title} ta="center">
               CHAVES DE ACESSO
             </Title>
           </SimpleGrid>
@@ -67,7 +69,7 @@ export function ProfileCard({ data }: CardPros) {
             {data.user.keys.map(i => (
               <>
                 <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1" key={i.id}>
-                  <Title fz="lg" ta="center">
+                  <Title className={classes.h2} ta="center">
                     CHAVE {data.user.keys && data.user.keys.length > 0 && data?.user?.keys?.indexOf(i) + 1}
                   </Title>
                   {i.key && (

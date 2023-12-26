@@ -1,4 +1,4 @@
-import classes from '@/src/components/form/ContainerForm/ContainerForm.module.css'
+import classes from '@/src/global/style/Cards.module.css'
 import { Button, Card, Flex, StyleProp, Title } from '@mantine/core'
 import { FormEventHandler } from 'react'
 
@@ -15,7 +15,7 @@ export function ContainerForm({ children, onClick, onSubmit, isLoading, directio
   return (
     <Flex w="100%" px={20} mx="auto">
       <Card shadow="md" radius="md" w="100%" padding="xl" className={classes.card}>
-        <Title mb={20} fz={{ base: 20, xs: 20, sm: 30, md: 40 }}>
+        <Title mb={20} className={classes.title} ta="center">
           CONSULTA POR {pageTitle}
         </Title>
         <form onSubmit={onSubmit} noValidate>
