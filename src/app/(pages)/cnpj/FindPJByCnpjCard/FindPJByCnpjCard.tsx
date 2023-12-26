@@ -48,7 +48,9 @@ export function FindPJByCnpjCard({ person }: CardPros) {
       <Card shadow="md" radius="md" className={classes.card} padding="xl">
         {/* DADOS PRINCIPAIS */}
         <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-          <Title ta="center">DADOS PRINCIPAIS</Title>
+          <Title className={classes.title} ta="center">
+            DADOS PRINCIPAIS
+          </Title>
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />
@@ -227,7 +229,9 @@ export function FindPJByCnpjCard({ person }: CardPros) {
 
         {/* ATUAÇÃO */}
         <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-          <Title ta="center">ATUAÇÃO</Title>
+          <Title className={classes.title} ta="center">
+            ATUAÇÃO
+          </Title>
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />
@@ -250,7 +254,9 @@ export function FindPJByCnpjCard({ person }: CardPros) {
 
         {/* ENDEREÇO */}
         <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-          <Title ta="center">ENDEREÇO</Title>
+          <Title className={classes.title} ta="center">
+            ENDEREÇO
+          </Title>
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />
@@ -329,7 +335,9 @@ export function FindPJByCnpjCard({ person }: CardPros) {
 
         {/* ATIVIDADES SECUNDARIAS */}
         <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-          <Title ta="center">ATIVIDADES SECUNDARIAS</Title>
+          <Title className={classes.title} ta="center">
+            ATIVIDADES SECUNDARIAS
+          </Title>
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />

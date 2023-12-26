@@ -55,7 +55,9 @@ export function FindLicensePlateCard({ data: { data } }: CardPros) {
 
         {/* DADOS PRINCIPAIS */}
         <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1">
-          <Title ta="center">DADOS DO VEÍCULO</Title>
+          <Title className={classes.title} ta="center">
+            DADOS DO VEÍCULO
+          </Title>
         </SimpleGrid>
 
         <Divider mt="md" mb={20} />
