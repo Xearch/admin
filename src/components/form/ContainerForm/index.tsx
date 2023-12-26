@@ -13,8 +13,8 @@ type Props = {
 
 export function ContainerForm({ children, onClick, onSubmit, isLoading, direction, pageTitle }: Props) {
   return (
-    <Flex w="100%" px={20} mx="auto">
-      <Card shadow="md" radius="md" w="100%" padding="xl" className={classes.card}>
+    <Flex w="100%">
+      <Card shadow="md" radius="md" w="100%" py="xl" className={classes.card}>
         <Title mb={20} className={classes.title} ta="center">
           CONSULTA POR {pageTitle}
         </Title>

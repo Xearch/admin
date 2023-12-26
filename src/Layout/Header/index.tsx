@@ -4,12 +4,12 @@ import { useSidebarDrawer } from '@/src/contexts/SidebarDrawerContext'
 import classes from '@/src/Layout/Header/Header.module.css'
 import { UserProfile } from '@/src/Layout/Header/UserProfile'
 import { Logo } from '@/src/Layout/logo'
-import { Burger, Flex } from '@mantine/core'
+import { Burger, Drawer, Flex } from '@mantine/core'
 
-import { Sidebar } from '../Sidebar/Sidebar'
+import { SidebarNav } from '../Sidebar/SidebarNav'
 
 export default function Header() {
-  const { opened, toggle } = useSidebarDrawer()
+  const { opened, toggle, close } = useSidebarDrawer()
 
   return (
     <div className={classes.main}>
@@ -17,7 +17,10 @@ export default function Header() {
         <Logo />
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
-        <Sidebar />
+        <Drawer opened={opened} onClose={close} position="left" size="xs" title="Menu">
+          <UserProfile />
+          <SidebarNav />
+        </Drawer>
 
         <UserProfile visibleFrom="md" />
       </Flex>

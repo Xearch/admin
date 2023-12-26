@@ -18,7 +18,7 @@ export const getUserProfile: GetUserProfile = async () => {
         ? format(new Date(userProfile.user.created_at), 'dd/MM/yyyy')
         : undefined,
     } as UserProfileType['user'],
-  }
+  } as UserProfileType
 
   return formattedUser
 }

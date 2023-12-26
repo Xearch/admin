@@ -52,6 +52,16 @@
   color: light-dark(rgb(52, 52, 52), gray);
 }
 
+.iconCopy {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  color: light-dark(rgb(52, 52, 52), gray);
+  cursor: pointer;
+  width: rem(25px);
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: rem(20px);
+  }
+}
+
 .cardTitle {
   font-style: bold;
   &::after {

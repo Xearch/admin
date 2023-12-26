@@ -81,16 +81,6 @@ export function ProfileCard({ data }: CardPros) {
                       <Text className={classes.cardContent}>{i.key}</Text>
                     </Flex>
                   )}
-
-                  {i.created_at && (
-                    <Flex mt="md">
-                      <IconToCopyText text={i.created_at} />
-                      <Text mx="5" className={classes.cardTitle}>
-                        Data de criação:
-                      </Text>
-                      <Text className={classes.cardContent}>{i.created_at}</Text>
-                    </Flex>
-                  )}
                 </SimpleGrid>
               </>
             ))}

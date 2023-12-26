@@ -13,7 +13,7 @@ interface LogoProps extends FlexProps {
 }
 
 export function Logo({ height = 40, width = 100, alt = 'logo', ...rest }: LogoProps) {
-  const matches = useMediaQuery('(min-width: 36em)')
+  const mobile = useMediaQuery('(max-width: 36em)')
   const { colorScheme } = useMantineColorScheme()
   const { push } = useRouter()
   return (
@@ -21,8 +21,8 @@ export function Logo({ height = 40, width = 100, alt = 'logo', ...rest }: LogoPr
       <Image
         src={colorScheme === 'dark' ? logoDark : logoWhite}
         alt={alt}
-        width={matches ? width : 60}
-        height={matches ? height : 25}
+        width={mobile ? 60 : width}
+        height={mobile ? 25 : height}
       />
     </Flex>
   )
