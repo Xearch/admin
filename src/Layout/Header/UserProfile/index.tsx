@@ -19,7 +19,7 @@ import {
   IconSwitchHorizontal,
 } from '@tabler/icons-react'
 import cx from 'clsx'
-import router from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 type Props = {
@@ -28,6 +28,7 @@ type Props = {
 
 export function UserProfile({ visibleFrom }: Props) {
   const { user, signOut } = useAuth()
+  const router = useRouter()
   const { setColorScheme, colorScheme } = useMantineColorScheme()
   const [userMenuOpened, setUserMenuOpened] = useState(false)
 
@@ -76,12 +77,13 @@ export function UserProfile({ visibleFrom }: Props) {
 
         <Menu.Label>Configurações</Menu.Label>
         <Menu.Item
-          onClick={() => router.push('/list')}
+          onClick={() => router.push('#')}
           leftSection={<IconSettings style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
         >
           Configurar conta
         </Menu.Item>
         <Menu.Item
+          onClick={() => signOut()}
           leftSection={<IconSwitchHorizontal style={{ width: rem(16), height: rem(16) }} stroke={1.5} />}
         >
           Mudar de conta
