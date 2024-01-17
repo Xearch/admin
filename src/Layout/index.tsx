@@ -20,7 +20,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className={classes.main}>
         <Header />
         <Flex>
-          {middleScreen && <Sidebar />}
+          {(middleScreen === undefined || middleScreen) && <Sidebar />}
           <Flex direction="column" px={mobile ? 10 : 20} mih="100vh" w="100%">
             {children}
           </Flex>
