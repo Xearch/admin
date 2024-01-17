@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import { Children } from '.'
+import { toastError } from '../components/Notification/Notifications'
 import { api } from '../services/api'
 
 interface SignInRequest {
@@ -65,20 +66,26 @@ export default function AuthProvider({ children }: Children) {
 
   async function signIn({ doc, password }: SignInRequest) {
     setIsLoading(true)
-    const response = await api.post<UserType>('/login', { doc, password })
+    try {
+      const response = await api.post<UserType>('/login', { doc, password })
 
-    const user = response.data
-    const { token } = user
+      const user = response.data
+      const { token } = user
 
-    localStorage.setItem(localStorageKeys.token, token)
-    localStorage.setItem(localStorageKeys.user, JSON.stringify(user))
+      localStorage.setItem(localStorageKeys.token, token)
+      localStorage.setItem(localStorageKeys.user, JSON.stringify(user))
 
-    api.defaults.headers.authorization = `Bearer ${token}`
-    router.push('/home')
+      api.defaults.headers.authorization = `Bearer ${token}`
+      router.push('/home')
 
-    setData({ token, user })
-    authChanel.postMessage('signIn')
-    setIsLoading(false)
+      setData({ token, user })
+      authChanel.postMessage('signIn')
+    } catch (error) {
+      const err = error as any
+      toastError(err.response.data.error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   function signOut() {
