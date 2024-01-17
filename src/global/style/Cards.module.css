@@ -1,10 +1,12 @@
 .container {
+  color: light-dark(rgb(52, 52, 52), gray);
   width: 100%;
   height: 100%;
   padding: 0;
 }
 
 .title {
+  color: light-dark(rgb(52, 52, 52), gray);
   font-size: rem(34px);
   font-weight: 900;
 
@@ -18,6 +20,7 @@
 }
 
 .h2 {
+  color: light-dark(rgb(52, 52, 52), gray);
   font-size: rem(20px);
   font-weight: 900;
 
@@ -31,6 +34,7 @@
 }
 
 .description {
+  color: light-dark(rgb(52, 52, 52), gray);
   max-width: rem(600px);
   margin: auto;
 

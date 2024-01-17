@@ -6,7 +6,14 @@ import { SidebarLinksGroup } from './LinksGroup'
 import { tabsNames } from './tabsNames'
 
 const mockData = [
-  { label: 'Dashboard', icon: IconGauge, links: [{ label: 'Início', value: 'home' }] },
+  {
+    label: 'Início',
+    icon: IconGauge,
+    links: [
+      { label: 'Políticas e termos de uso', value: 'home' },
+      { label: 'Dados do usuário', value: 'profile' },
+    ],
+  },
   {
     label: 'Consultas Pro',
     icon: IconNotes,
