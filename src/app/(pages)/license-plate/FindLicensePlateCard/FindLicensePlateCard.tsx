@@ -237,7 +237,7 @@ export function FindLicensePlateCard({ data: { data } }: CardPros) {
             <Flex mt="md">
               <IconToCopyText text={data.estado} />
               <Text mx="5" className={classes.cardTitle}>
-                Cidade:
+                Estado:
               </Text>
               <Text className={classes.cardTitle}>{data.estado}</Text>
             </Flex>
