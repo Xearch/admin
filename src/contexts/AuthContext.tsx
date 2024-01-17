@@ -34,6 +34,7 @@ interface AuthContextData {
   user: UserType
   signIn: (data: SignInRequest) => Promise<void>
   signOut: () => void
+  isLoading: boolean
 }
 
 export const localStorageKeys = {
@@ -46,6 +47,7 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 export let authChanel: BroadcastChannel
 
 export default function AuthProvider({ children }: Children) {
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const [data, setData] = useState<SignInResponse>(() => {
     if (typeof window !== 'undefined') {
@@ -62,6 +64,7 @@ export default function AuthProvider({ children }: Children) {
   })
 
   async function signIn({ doc, password }: SignInRequest) {
+    setIsLoading(true)
     const response = await api.post<UserType>('/login', { doc, password })
 
     const user = response.data
@@ -75,14 +78,17 @@ export default function AuthProvider({ children }: Children) {
 
     setData({ token, user })
     authChanel.postMessage('signIn')
+    setIsLoading(false)
   }
 
   function signOut() {
+    setIsLoading(true)
     localStorage.removeItem(localStorageKeys.token)
     localStorage.removeItem(localStorageKeys.user)
     authChanel.postMessage('signOut')
     setData({} as SignInResponse)
     router.push('/')
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -107,6 +113,7 @@ export default function AuthProvider({ children }: Children) {
         user: data.user,
         signIn,
         signOut,
+        isLoading,
       }}
     >
       {children}

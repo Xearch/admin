@@ -1,14 +1,14 @@
 'use client'
 
 import { Logo } from '@/src/Layout/logo'
-import { Anchor, Button, Container, Group, Paper, PasswordInput, TextInput } from '@mantine/core'
+import { Button, Container, Paper, PasswordInput, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 import { toastError } from '../components/Notification/Notifications'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Login() {
-  const { signIn } = useAuth()
+  const { signIn, isLoading } = useAuth()
   const form = useForm({
     initialValues: {
       doc: '',
@@ -53,12 +53,7 @@ export default function Login() {
             mt="md"
             {...form.getInputProps('password')}
           />
-          <Group justify="space-between" mt="lg">
-            <Anchor component="button" size="sm">
-              Esqueceu a senha?
-            </Anchor>
-          </Group>
-          <Button fullWidth mt="xl" type="submit">
+          <Button fullWidth mt="xl" type="submit" loading={isLoading}>
             Entrar
           </Button>
         </form>
