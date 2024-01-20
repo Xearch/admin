@@ -12,12 +12,20 @@ type Output = {
 
 type RefreshToken = () => Promise<Output>
 
+function signOut() {
+  localStorage.removeItem(localStorageKeys.token)
+  localStorage.removeItem(localStorageKeys.user)
+  authChanel.postMessage('signOut')
+  window.location.href = '/'
+}
+
 export const refreshToken: RefreshToken = async () => {
   const tokenInStorage = localStorage.getItem(localStorageKeys.token)
   if (tokenInStorage) {
+    api.defaults.headers.authorization = `Bearer ${tokenInStorage}`
     try {
       verifyToken(tokenInStorage)
-      const { data } = await api.post(`/refresh-token`)
+      const { data } = await api.post(`/refresh-token`, {})
       const { accessToken } = data
       localStorage.removeItem(localStorageKeys.token)
       localStorage.setItem(localStorageKeys.token, accessToken)
@@ -25,12 +33,9 @@ export const refreshToken: RefreshToken = async () => {
       return data
     } catch (error) {
       toastError(error)
-      localStorage.removeItem(localStorageKeys.token)
-      localStorage.removeItem(localStorageKeys.user)
-      authChanel.postMessage('signOut')
-      window.location.href = '/'
+      signOut()
     }
-  }
+  } else signOut()
 }
 
 export function useRefreshToken(): SWRResponse<Output, any, any> {
