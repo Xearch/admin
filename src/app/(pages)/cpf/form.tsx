@@ -7,6 +7,7 @@ import { CardsSkeletonUsersCpf } from '@/src/app/(pages)/cpf/FindByCpfCards/Skel
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import MaskInput from '@/src/components/form/InputMask'
 import { toastError } from '@/src/components/Notification/Notifications'
+import { useQueryParams } from '@/src/hooks/useQueryParams'
 import {
   searchByCpfComplete,
   searchByCpfSimple,
@@ -18,11 +19,12 @@ import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
 import { validateCpf } from '@/src/services/utils/validateCpf'
 import { Flex, Grid, Group, Radio } from '@mantine/core'
 import { useForm } from '@mantine/form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { SpcByCpfCard } from './FindByCpfCards/SpcByCpfCard'
 
 export function Form() {
+  const cpf = useQueryParams('cpf')
   const [isLoading, setIsLoading] = useState(false)
   const [dataCpfSimple, setDataCpfSimple] = useState<FindSimpleCpfType>()
   const [dataCpfComplete, setDataCpfComplete] = useState<FindCompleteCpfType>()
@@ -65,6 +67,10 @@ export function Form() {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    form.setValues({ cpf, type_search: 'simple' })
+  }, [cpf, form])
 
   return (
     <>

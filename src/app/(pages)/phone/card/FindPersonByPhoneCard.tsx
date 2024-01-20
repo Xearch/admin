@@ -1,5 +1,6 @@
 import { NotFoundRegister } from '@/src/components/form'
 import { IconToCopyText } from '@/src/components/IconToCopyText'
+import { IconToSearch } from '@/src/components/IconToSearch'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindPersonByPhoneType } from '@/src/services/types'
 import { Card, Container, Flex, rem, SimpleGrid, Text } from '@mantine/core'
@@ -32,7 +33,7 @@ export function FindPersonByPhoneCard({ data }: CardPros) {
 
                 {person.cpf && (
                   <Flex>
-                    <IconToCopyText text={person.cpf} />
+                    <IconToSearch params={{ param_name: 'cpf', param_value: person.cpf, url: '/cpf' }} />
                     <Text mx="5" className={classes.cardTitle}>
                       CPF:
                     </Text>
