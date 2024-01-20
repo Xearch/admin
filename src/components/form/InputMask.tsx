@@ -2,7 +2,7 @@
 
 'use client'
 
-import { Text, Flex } from '@mantine/core'
+import { Flex, Text } from '@mantine/core'
 import InputMask, { Props as InputMaskProps } from 'react-input-mask'
 
 interface Props extends InputMaskProps {

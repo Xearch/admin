@@ -16,10 +16,11 @@ import {
 } from '@/src/services/endpoints/searchByCpf'
 import { CpfResponseBySpcType, FindCompleteCpfType, FindSimpleCpfType } from '@/src/services/types'
 import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
+import { removeMainParam } from '@/src/services/utils/format-url/removeMainParam'
 import { validateCpf } from '@/src/services/utils/validateCpf'
 import { Flex, Grid, Group, Radio } from '@mantine/core'
 import { useForm } from '@mantine/form'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { SpcByCpfCard } from './FindByCpfCards/SpcByCpfCard'
 
@@ -68,9 +69,9 @@ export function Form() {
     }
   }
 
-  useEffect(() => {
-    form.setValues({ cpf, type_search: 'simple' })
-  }, [cpf, form])
+  if (!form.values.cpf && !form.values.type_search && cpf) {
+    form.setValues({ cpf })
+  }
 
   return (
     <>
@@ -84,6 +85,7 @@ export function Form() {
           setDataCns(undefined)
           setDataSpc(undefined)
           form.setValues({ cpf: '' })
+          removeMainParam('cpf')
         }}
         pageTitle="CPF"
       >
@@ -111,6 +113,9 @@ export function Form() {
             label="CPF"
             name="cpf"
             placeholder="Digite um CPF"
+            onChangeCapture={() => {
+              removeMainParam('cpf')
+            }}
             required
             {...form.getInputProps('cpf')}
           />
