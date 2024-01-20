@@ -4,7 +4,6 @@ import classes from '@/src/global/style/Cards.module.css'
 import { setParamToUrl } from '@/src/services/utils/format-url/setParamToUrl'
 import { Tooltip } from '@mantine/core'
 import { IconSearch } from '@tabler/icons-react'
-import { useRouter } from 'next/navigation'
 
 type Props = {
   params: {
@@ -14,7 +13,6 @@ type Props = {
   }
 }
 export function IconToSearch({ params }: Props) {
-  const router = useRouter()
   const { param_name, param_value } = params
   return (
     <Tooltip label="Buscar">
@@ -22,7 +20,7 @@ export function IconToSearch({ params }: Props) {
         className={classes.iconCopy}
         onClick={() => {
           const urlUpdated = setParamToUrl({ param_name, param_value, url: params.url })
-          router.push(urlUpdated)
+          window.open(urlUpdated, '_blank')
         }}
       />
     </Tooltip>
