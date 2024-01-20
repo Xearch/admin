@@ -16,7 +16,7 @@ import {
 } from '@/src/services/endpoints/searchByCpf'
 import { CpfResponseBySpcType, FindCompleteCpfType, FindSimpleCpfType } from '@/src/services/types'
 import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
-import { removeMainParam } from '@/src/services/utils/format-url/removeMainParam'
+import { removeFirstParam } from '@/src/services/utils/format-url/removeFirstParam'
 import { validateCpf } from '@/src/services/utils/validateCpf'
 import { Flex, Grid, Group, Radio } from '@mantine/core'
 import { useForm } from '@mantine/form'
@@ -84,8 +84,8 @@ export function Form() {
           setDataCpfComplete(undefined)
           setDataCns(undefined)
           setDataSpc(undefined)
-          form.setValues({ cpf: '' })
-          removeMainParam('cpf')
+          form.setValues({ cpf: '', type_search: '' })
+          removeFirstParam('cpf')
         }}
         pageTitle="CPF"
       >
@@ -114,7 +114,7 @@ export function Form() {
             name="cpf"
             placeholder="Digite um CPF"
             onChangeCapture={() => {
-              removeMainParam('cpf')
+              removeFirstParam('cpf')
             }}
             required
             {...form.getInputProps('cpf')}
