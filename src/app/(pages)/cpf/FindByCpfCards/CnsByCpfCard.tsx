@@ -1,4 +1,5 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
+import { IconToSearch } from '@/src/components/IconToSearch'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindCnsByCpfType } from '@/src/services/types/FindCnsByCpfType'
 import { Card, Container, Divider, Flex, SimpleGrid, Text, Title } from '@mantine/core'
@@ -66,7 +67,7 @@ export function CnsByCpfCard({ data }: CardPros) {
           </Flex>
 
           <Flex mt="md">
-            <IconToCopyText text={data.data.cadsus.cns} />
+            <IconToSearch params={{ param_name: 'cns', param_value: data.data.cadsus.cns, url: '/cns' }} />
             <Text mx="5" className={classes.cardTitle}>
               Cartão do SUS:
             </Text>
@@ -80,21 +81,31 @@ export function CnsByCpfCard({ data }: CardPros) {
             <Text className={classes.cardContent}>{data.data.cadsus.sexo}</Text>
           </Flex>
 
-          <Flex mt="md">
-            <IconToCopyText text={data.data.cadsus.mae} />
-            <Text mx="5" className={classes.cardTitle}>
-              Mãe:
-            </Text>
-            <Text className={classes.cardContent}>{data.data.cadsus.mae}</Text>
-          </Flex>
+          {data.data.cadsus.mae && (
+            <Flex mt="md">
+              <IconToCopyText text={data.data.cadsus.mae} />
+              <IconToSearch
+                params={{ param_name: 'name', param_value: data.data.cadsus.mae, url: '/name' }}
+              />
+              <Text mx="5" className={classes.cardTitle}>
+                Mãe:
+              </Text>
+              <Text className={classes.cardContent}>{data.data.cadsus.mae}</Text>
+            </Flex>
+          )}
 
-          <Flex mt="md">
-            <IconToCopyText text={data.data.cadsus.pai} />
-            <Text mx="5" className={classes.cardTitle}>
-              Pai:
-            </Text>
-            <Text className={classes.cardContent}>{data.data.cadsus.pai}</Text>
-          </Flex>
+          {data.data.cadsus.pai && (
+            <Flex mt="md">
+              <IconToCopyText text={data.data.cadsus.pai} />
+              <IconToSearch
+                params={{ param_name: 'name', param_value: data.data.cadsus.pai, url: '/name' }}
+              />
+              <Text mx="5" className={classes.cardTitle}>
+                Pai:
+              </Text>
+              <Text className={classes.cardContent}>{data.data.cadsus.pai}</Text>
+            </Flex>
+          )}
 
           <Flex mt="md">
             <IconToCopyText text={data.data.cadsus.codigo_raca_cor} />
@@ -112,13 +123,17 @@ export function CnsByCpfCard({ data }: CardPros) {
             <Text className={classes.cardContent}>{data.data.cadsus.nome_pais}</Text>
           </Flex>
 
-          <Flex mt="md">
-            <IconToCopyText text={data.data.cadsus.telefone} />
-            <Text mx="5" className={classes.cardTitle}>
-              Telefone:
-            </Text>
-            <Text className={classes.cardContent}>{data.data.cadsus.telefone}</Text>
-          </Flex>
+          {data.data.cadsus.telefone && (
+            <Flex mt="md">
+              <IconToSearch
+                params={{ param_name: 'phone', param_value: data.data.cadsus.telefone, url: '/phone' }}
+              />
+              <Text mx="5" className={classes.cardTitle}>
+                Telefone:
+              </Text>
+              <Text className={classes.cardContent}>{data.data.cadsus.telefone}</Text>
+            </Flex>
+          )}
         </SimpleGrid>
 
         {/* ENDEREÇO */}

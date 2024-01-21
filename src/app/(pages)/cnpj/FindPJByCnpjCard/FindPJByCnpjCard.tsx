@@ -1,4 +1,5 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
+import { IconToSearch } from '@/src/components/IconToSearch'
 import classes from '@/src/global/style/Cards.module.css'
 import { CnpjResponse } from '@/src/services/types'
 import { Card, Container, Divider, Flex, SimpleGrid, Skeleton, Text, Title } from '@mantine/core'
@@ -208,7 +209,7 @@ export function FindPJByCnpjCard({ person }: CardPros) {
 
           {person.telefone && (
             <Flex mt="md">
-              <IconToCopyText text={person.telefone} />
+              <IconToSearch params={{ param_name: 'phone', param_value: person.telefone, url: '/phone' }} />
               <Text mx="5" className={classes.cardTitle}>
                 Telefone:
               </Text>
@@ -219,6 +220,7 @@ export function FindPJByCnpjCard({ person }: CardPros) {
           {person.email && (
             <Flex mt="md">
               <IconToCopyText text={person.email} />
+              <IconToSearch params={{ param_name: 'email', param_value: person.email, url: '/email' }} />
               <Text mx="5" className={classes.cardTitle}>
                 Email:
               </Text>

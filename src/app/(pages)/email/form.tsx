@@ -2,8 +2,10 @@
 
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import { toastError } from '@/src/components/Notification/Notifications'
+import { useQueryParams } from '@/src/hooks/useQueryParams'
 import { searchPersonByEmail } from '@/src/services/endpoints/searchByEmail'
 import { FindPersonByEmailType } from '@/src/services/types'
+import { removeFirstParam } from '@/src/services/utils/format-url/removeFirstParam'
 import { CloseButton, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useState } from 'react'
@@ -12,6 +14,7 @@ import { CardsSkeletonUsers } from '../name/FindByNameCard/FindByNameCard'
 import { FindPersonByEmailCard } from './card/FindPersonByEmailCard'
 
 export function Form() {
+  const email = useQueryParams('email')
   const [isLoading, setIsLoading] = useState(false)
   const [person, setPerson] = useState<FindPersonByEmailType | null>(null)
   const form = useForm({
@@ -36,6 +39,10 @@ export function Form() {
     }
   }
 
+  if (!form.values.email && email) {
+    form.setValues({ email })
+  }
+
   return (
     <>
       <ContainerForm
@@ -44,6 +51,7 @@ export function Form() {
         onClick={() => {
           setPerson(null)
           form.setValues({ email: '' })
+          removeFirstParam('email')
         }}
         pageTitle="EMAIL"
       >
@@ -52,12 +60,14 @@ export function Form() {
           name="email"
           placeholder="Digite um email"
           required
+          onChangeCapture={() => removeFirstParam('email')}
           {...form.getInputProps('email')}
           rightSection={
             <CloseButton
               onClick={() => {
                 form.setValues({ email: '' })
                 setPerson(null)
+                removeFirstParam('email')
               }}
             />
           }

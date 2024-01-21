@@ -1,4 +1,5 @@
 import { IconToCopyText } from '@/src/components/IconToCopyText'
+import { IconToSearch } from '@/src/components/IconToSearch'
 import classes from '@/src/global/style/Cards.module.css'
 import { CpfResponseBySpcType } from '@/src/services/types'
 import { Card, Container, Divider, Flex, SimpleGrid, Text, Title } from '@mantine/core'
@@ -175,8 +176,12 @@ export function SpcByCpfCard({ data: { data } }: CardPros) {
 
           {data.data?.telefoneCelular && data.data?.telefoneCelular.numero && (
             <Flex mt="md">
-              <IconToCopyText
-                text={`(${data.data?.telefoneCelular['numero-ddd']}) ${data.data?.telefoneCelular.numero}`}
+              <IconToSearch
+                params={{
+                  param_name: 'phone',
+                  param_value: `(${data.data?.telefoneCelular['numero-ddd']}) ${data.data?.telefoneCelular.numero}`,
+                  url: '/phone',
+                }}
               />
               <Text mx="5" className={classes.cardTitle}>
                 Telefone:

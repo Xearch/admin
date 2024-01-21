@@ -1,5 +1,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { IconToCopyText } from '@/src/components/IconToCopyText'
+import { IconToSearch } from '@/src/components/IconToSearch'
 import classes from '@/src/global/style/Cards.module.css'
 import { FindCompleteCpfType } from '@/src/services/types'
 import parseCurrency from '@/src/services/utils/parseCurrency'
@@ -62,6 +63,7 @@ export function CompleteCpfCard({ data }: CardPros) {
           {data.data.nomeMae && (
             <Flex mt="md">
               <IconToCopyText text={data.data.nomeMae} />
+              <IconToSearch params={{ param_name: 'name', param_value: data.data.nomeMae, url: '/name' }} />
               <Text mx="5" className={classes.cardTitle}>
                 Mãe:
               </Text>
@@ -72,6 +74,7 @@ export function CompleteCpfCard({ data }: CardPros) {
           {data.data.nomePai && (
             <Flex mt="md">
               <IconToCopyText text={data.data.nomePai} />
+              <IconToSearch params={{ param_name: 'name', param_value: data.data.nomePai, url: '/name' }} />
               <Text mx="5" className={classes.cardTitle}>
                 Pai:
               </Text>
@@ -351,7 +354,13 @@ export function CompleteCpfCard({ data }: CardPros) {
                   <SimpleGrid cols={{ base: 1, md: 1 }} spacing="1" key={t.ddd}>
                     {t.ddd && t.numero && (
                       <Flex mt="md">
-                        <IconToCopyText text={`(${t.ddd}) ${t.numero}`} />
+                        <IconToSearch
+                          params={{
+                            param_name: 'phone',
+                            param_value: `(${t.ddd}) ${t.numero}`,
+                            url: '/phone',
+                          }}
+                        />
                         <Title fz="md" ta="center" mx="5" className={classes.cardTitle}>
                           TELEFONE{' '}
                           {data.data.telefones &&
@@ -394,7 +403,7 @@ export function CompleteCpfCard({ data }: CardPros) {
                     {i.nome && (
                       <Flex mt="md">
                         <IconToCopyText text={i.nome} />
-
+                        <IconToSearch params={{ param_name: 'name', param_value: i.nome, url: '/name' }} />
                         <Text mx="5" className={classes.cardTitle}>
                           Nome:
                         </Text>
@@ -448,6 +457,7 @@ export function CompleteCpfCard({ data }: CardPros) {
                       <>
                         <Flex align="center">
                           <IconToCopyText text={i.nome} />
+                          <IconToSearch params={{ param_name: 'name', param_value: i.nome, url: '/name' }} />
                           <Title fz="md" ta="center" mx="5" className={classes.h2}>
                             {data.data.vizinhos &&
                               data.data.vizinhos.length > 0 &&

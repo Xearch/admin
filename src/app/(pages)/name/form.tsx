@@ -3,13 +3,16 @@
 import { CardsSkeletonUsers, FindByNameCard } from '@/src/app/(pages)/name/FindByNameCard/FindByNameCard'
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import { toastError } from '@/src/components/Notification/Notifications'
+import { useQueryParams } from '@/src/hooks/useQueryParams'
 import { searchByName } from '@/src/services/endpoints/searchByName'
 import { FindByNameType } from '@/src/services/types'
-import { TextInput, CloseButton } from '@mantine/core'
+import { removeFirstParam } from '@/src/services/utils/format-url/removeFirstParam'
+import { CloseButton, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useState } from 'react'
 
 export function Form() {
+  const name = useQueryParams('name')
   const [isLoading, setIsLoading] = useState(false)
   const [people, setPeople] = useState<FindByNameType>()
   const form = useForm({
@@ -39,6 +42,10 @@ export function Form() {
     }
   }
 
+  if (!form.values.name && name) {
+    form.setValues({ name })
+  }
+
   return (
     <>
       <ContainerForm
@@ -47,6 +54,7 @@ export function Form() {
         onClick={() => {
           setPeople(undefined)
           form.setValues({ name: '' })
+          removeFirstParam('name')
         }}
         pageTitle="NOME"
       >
@@ -56,11 +64,13 @@ export function Form() {
           placeholder="Digite um nome"
           required
           {...form.getInputProps('name')}
+          onChangeCapture={() => removeFirstParam('name')}
           rightSection={
             <CloseButton
               onClick={() => {
                 form.setValues({ name: '' })
                 setPeople(undefined)
+                removeFirstParam('name')
               }}
             />
           }

@@ -22,7 +22,7 @@ export function FindPersonByEmailCard({ data }: CardPros) {
                 <IconUser style={{ width: rem(30), height: rem(30) }} stroke={2} color="#1E90FF" />
                 {person.nome && (
                   <Flex mt="md">
-                    <IconToCopyText text={person.nome} />
+                    <IconToSearch params={{ param_name: 'name', param_value: person.nome, url: '/name' }} />
                     <Text mx="5" className={classes.cardTitle}>
                       Nome:
                     </Text>
@@ -43,6 +43,7 @@ export function FindPersonByEmailCard({ data }: CardPros) {
                 {person.email && (
                   <Flex>
                     <IconToCopyText text={person.email} />
+
                     <Text mx="5" className={classes.cardTitle}>
                       Email:
                     </Text>

@@ -84,13 +84,15 @@ export function FindByNameCard({ people }: CardPros) {
                 <Text className={classes.cardTitle}>{person.cpf}</Text>
               </Flex>
 
-              <Flex>
-                <IconToCopyText text={person.nomeMae} />
-                <Text mx="5" className={classes.cardTitle}>
-                  Mãe:
-                </Text>
-                <Text className={classes.cardTitle}>{person.nomeMae}</Text>
-              </Flex>
+              {person.nomeMae && (
+                <Flex>
+                  <IconToSearch params={{ param_name: 'name', param_value: person.nomeMae, url: '/name' }} />
+                  <Text mx="5" className={classes.cardTitle}>
+                    Mãe:
+                  </Text>
+                  <Text className={classes.cardTitle}>{person.nomeMae}</Text>
+                </Flex>
+              )}
             </Card>
           )
         })}

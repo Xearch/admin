@@ -3,8 +3,10 @@
 import { ContainerForm } from '@/src/components/form/ContainerForm'
 import MaskInput from '@/src/components/form/InputMask'
 import { toastError } from '@/src/components/Notification/Notifications'
+import { useQueryParams } from '@/src/hooks/useQueryParams'
 import { searchPersonByPhone } from '@/src/services/endpoints/searchByPhone'
 import { FindPersonByPhoneType } from '@/src/services/types'
+import { removeFirstParam } from '@/src/services/utils/format-url/removeFirstParam'
 import { useForm } from '@mantine/form'
 import { useState } from 'react'
 
@@ -12,6 +14,7 @@ import { CardsSkeletonUsers } from '../name/FindByNameCard/FindByNameCard'
 import { FindPersonByPhoneCard } from './card/FindPersonByPhoneCard'
 
 export function Form() {
+  const phone = useQueryParams('phone')
   const [isLoading, setIsLoading] = useState(false)
   const [person, setPerson] = useState<FindPersonByPhoneType | null>(null)
   const form = useForm({
@@ -35,6 +38,10 @@ export function Form() {
     }
   }
 
+  if (!form.values.phone && phone) {
+    form.setValues({ phone })
+  }
+
   return (
     <>
       <ContainerForm
@@ -43,6 +50,7 @@ export function Form() {
         onClick={() => {
           setPerson(null)
           form.setValues({ phone: '' })
+          removeFirstParam('phone')
         }}
         pageTitle="TELEFONE"
       >
@@ -51,6 +59,7 @@ export function Form() {
           label="Telefone"
           name="phone"
           placeholder="Digite um telefone"
+          onChangeCapture={() => removeFirstParam('phone')}
           required
           {...form.getInputProps('phone')}
         />
